@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Manage your photos!
+    </ion-title>
+    <ion-buttons end>
+    <button (click)="takePicture()" class="custom-icon">
+      <ion-icon name="camera"></ion-icon>
+    </button>
+  </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <div *ngIf="base64Image.length == 0"> <br/><br/> &nbsp; &nbsp;Click on the camera icon to take pictures!</div>
+
+ <ion-slides pager autoplay="true" pager="true" [options]="extraOptions"  *ngIf="base64Image.length > 0">
+  <ion-slide *ngFor="let image of base64Image">
+          <img [src]="image" />
+        </ion-slide>
+</ion-slides>
+
+</ion-content>
